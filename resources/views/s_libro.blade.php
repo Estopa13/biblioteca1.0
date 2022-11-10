@@ -49,8 +49,11 @@
                 </ul>
 
             </div>
-            <div class="col-md-2">
-                <a class="btn btn-primary" href="#" >regresar</a></div>
+                <div class="col-md-2">
+                <a class="btn btn-primary" href="#" >perfil</a>
+                    <a class="btn btn-primary" href="#" >salir</a>
+                </div>
+
             </div>
         </div>
     </div>
