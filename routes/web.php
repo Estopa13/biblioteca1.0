@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EscritorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +25,14 @@ Route::get('/login', function () {
 Route::get('/s_libro', function () {
     return view('s_libro');
 });
+
+Route::get('/escritores.create', function () {
+    return view('escritores.create');
+});
+Route::get('/escritores.index', function () {
+    return view('/escri');
+});;
+
+
+Route::resource('/escri',EscritorController::class);
+

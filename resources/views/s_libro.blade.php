@@ -31,7 +31,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Active</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Escritores</a>
+                        <a class="nav-link" href="escri">Escritores</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Editoriales</a>
