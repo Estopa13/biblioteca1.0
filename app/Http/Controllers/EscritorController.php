@@ -74,7 +74,8 @@ class EscritorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $escritores=Escritor::findOrFail($id);
+        return view('escritores.edit',compact('escritores'));
     }
 
     /**
@@ -86,7 +87,12 @@ class EscritorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $escritor=Escritor::findOrFail($id);
+        $escritor->nome=$request->input('nome');
+        $escritor->ape=$request->input('ape');
+        $escritor->ame=$request->input('ame');
+        $escritor->save();
+        return view('s_libro');
     }
 
     /**
@@ -97,6 +103,9 @@ class EscritorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $escritor=Escritor::findOrFail($id);
+        $escritor->delete();
+
+        return view('s_libro');
     }
 }

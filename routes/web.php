@@ -33,6 +33,8 @@ Route::get('/escritores.index', function () {
     return view('/escri');
 });;
 
-
+Route::get('/escritores.edit', function () {
+    return view('escritores.edit');
+});
 Route::resource('/escri',EscritorController::class);
 

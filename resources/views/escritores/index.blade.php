@@ -54,7 +54,15 @@
                         @else
                         @foreach($escritores as $escritores)
                             <tr>
-                                <td>Editar|Eliminar</td>
+                                <td>
+                                    <a href="{{route('escri.edit',$escritores->id_escritor)}}" class="btn btn-warning btn-sm">Editar</a>
+                                    <form action="{{route('escri.destroy',$escritores->id_escritor)}}" method="post">
+                                        <input type="hidden" >
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
+                                    </form>
+                                    |</td>
                                 <td>{{$escritores->id_escritor}}</td>
                                 <td>{{$escritores->nome}}</td>
                                 <td>{{$escritores->ape}}</td>
