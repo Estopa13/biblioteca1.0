@@ -1,7 +1,9 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EscritorController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,29 +14,17 @@ use App\Http\Controllers\EscritorController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('layouts.template');
+})->name('home');
 
 
-Route::get('/login', function () {
-    return view('login');
-});
 
-Route::get('/s_libro', function () {
-    return view('s_libro');
-});
+Auth::routes();
 
-Route::get('/escritores.create', function () {
-    return view('escritores.create');
-});
-Route::get('/escritores.index', function () {
-    return view('/escri');
-});;
+Route::resource('/user','Backend\Role_User\UserController',['except'=>['create','store']])->names('user');
+Route::resource('/role','Backend\Role_User\RoleController')->names('role');
+Route::resource('/category','Backend\Role_User\CategoryController')->names('category');
+//routes::resource('/escritores','Backend\Role_User\EscritorController')->names('escritores');
 
-Route::get('/escritores.edit', function () {
-    return view('escritores.edit');
-});
-Route::resource('/escri',EscritorController::class);
-
+//Route::resource('/permission','Backend\Role_User\PermissionController')->names('permission');
