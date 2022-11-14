@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,5 @@ Route::resource('/user','Backend\Role_User\UserController',['except'=>['create',
 Route::resource('/role','Backend\Role_User\RoleController')->names('role');
 Route::resource('/category','Backend\Role_User\CategoryController')->names('category');
 //routes::resource('/escritores','Backend\Role_User\EscritorController')->names('escritores');
-
+Route::resource('estantes', \App\Http\Controllers\EstanteController::class);
 //Route::resource('/permission','Backend\Role_User\PermissionController')->names('permission');

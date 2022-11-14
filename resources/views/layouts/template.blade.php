@@ -82,7 +82,7 @@
     <aside class="main-sidebar  elevation-4">
       <!-- Brand Logo -->
       <a href="{{ route('home') }}" class="brand-link">
-         
+
         <span class="brand-text font-weight-light">Biblioteca</span>
       </a>
 
@@ -94,7 +94,7 @@
         <!-- Sidebar user panel (optional) -->
         <a href="{{ route('user.edit', Auth::user()->id) }}" class="d-block">
           <div class="user-panel mt-2 pb-2 mb-2 d-flex">
-            
+
             <div class="info">
               {{ Auth::user()->name }}
 
@@ -134,7 +134,6 @@
                       </a>
                     </li>
                   </ul>
-                </li>
                 @endcan
 
                 @can('haveaccess','role.index')
@@ -173,7 +172,7 @@
                     @can('haveaccess','category.index')
                     <li class="nav-item">
                       <a href="{{route('category.index')}}" class="nav-link">
-                       
+
                         <p>categoria</p>
                       </a>
                     </li>
@@ -182,7 +181,26 @@
                 </li>
                 @endcan
 
-               
+                @can('haveaccess','role.index')
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <p>
+                                    Estantes
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                @can('haveaccess','role.index')
+                                    <li class="nav-item">
+                                        <a href="{{url('estantes')}}" class="nav-link">
+                                            <p>Ver estantes</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </li>
+                @endcan
 
               </ul>
             </li>
@@ -199,10 +217,7 @@
       <!-- Main content -->
       <section class="content">
         <div class="container">
-
           @yield('content')
-
-
         </div>
       </section>
       <!-- /.content -->
