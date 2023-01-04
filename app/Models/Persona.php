@@ -19,4 +19,8 @@ class Persona extends Model
         'am',
         'id_tipo'
     ];
+
+    public function tipos(){
+        return $this->hasOne('App\Models\TipoPersona', 'id_tipo', 'id_tipo');
+    }
 }

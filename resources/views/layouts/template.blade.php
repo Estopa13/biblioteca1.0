@@ -97,7 +97,6 @@
 
             <div class="info">
               {{ Auth::user()->name }}
-
             </div>
           </div>
         </a>
@@ -105,108 +104,145 @@
         @endguest
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <p>
-                  Libreria
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                @can('haveaccess','user.index')
-                <li class="nav-item has-treeview">
-                  <a href="{{route('user.index')}}" class="nav-link">
-           <a href="#" class="nav-link">
-                    <p>
-                      Usuarios
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="{{route('user.index')}}" class="nav-link">
-
-                        <p>Lista de usuarios</p>
-                      </a>
-                    </li>
-                  </ul>
-                @endcan
-
-                @can('haveaccess','role.index')
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <p>
-                      Roles
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-
-                    @can('haveaccess','role.index')
-                    <li class="nav-item">
-                      <a href="{{route('role.index')}}" class="nav-link">
-
-                        <p> rol</p>
-                      </a>
-                    </li>
-                    @endcan
-                  </ul>
-                </li>
-                @endcan
-
-                @can('haveaccess','category.index')
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-
-                    <p>
-                      Categorias
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-
-                    @can('haveaccess','category.index')
-                    <li class="nav-item">
-                      <a href="{{route('category.index')}}" class="nav-link">
-
-                        <p>categoria</p>
-                      </a>
-                    </li>
-                    @endcan
-                  </ul>
-                </li>
-                @endcan
-
-                @can('haveaccess','role.index')
+        @if(Auth::check())
+            <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                           with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <p>
-                                    Estantes
+                                    Libreria
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @can('haveaccess','user.index')
+                                    <li class="nav-item has-treeview">
+                                        <a href="{{route('user.index')}}" class="nav-link">
+                                            <a href="#" class="nav-link">
+                                                <p>
+                                                    Usuarios
+                                                    <i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="{{route('user.index')}}" class="nav-link">
+
+                                                        <p>Lista de usuarios</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                @endcan
 
                                 @can('haveaccess','role.index')
-                                    <li class="nav-item">
-                                        <a href="{{url('estantes')}}" class="nav-link">
-                                            <p>Ver estantes</p>
+                                    <li class="nav-item has-treeview">
+                                        <a href="#" class="nav-link">
+                                            <p>
+                                                Roles
+                                                <i class="right fas fa-angle-left"></i>
+                                            </p>
                                         </a>
+                                        <ul class="nav nav-treeview">
+
+                                            @can('haveaccess','role.index')
+                                                <li class="nav-item">
+                                                    <a href="{{route('role.index')}}" class="nav-link">
+
+                                                        <p> rol</p>
+                                                    </a>
+                                                </li>
+                                            @endcan
+                                        </ul>
                                     </li>
                                 @endcan
+
+                                @can('haveaccess','category.index')
+                                    <li class="nav-item has-treeview">
+                                        <a href="#" class="nav-link">
+
+                                            <p>
+                                                Categorias
+                                                <i class="right fas fa-angle-left"></i>
+                                            </p>
+                                        </a>
+                                        <ul class="nav nav-treeview">
+
+                                            @can('haveaccess','category.index')
+                                                <li class="nav-item">
+                                                    <a href="{{route('category.index')}}" class="nav-link">
+
+                                                        <p>categoria</p>
+                                                    </a>
+                                                </li>
+                                            @endcan
+                                        </ul>
+                                    </li>
+                                @endcan
+
+                                @can('haveaccess','role.index')
+                                    <li class="nav-item has-treeview">
+                                        <a href="#" class="nav-link">
+                                            <p>
+                                                Estantes
+                                                <i class="right fas fa-angle-left"></i>
+                                            </p>
+                                        </a>
+                                        <ul class="nav nav-treeview">
+
+                                            @can('haveaccess','role.index')
+                                                <li class="nav-item">
+                                                    <a href="{{url('estantes')}}" class="nav-link">
+                                                        <p>Ver estantes</p>
+                                                    </a>
+                                                </li>
+                                            @endcan
+                                        </ul>
+                                    </li>
+                                @endcan
+
+                                @if(Auth::user()->name === 'admin')
+                                        <li class="nav-item has-treeview">
+                                            <a href="#" class="nav-link">
+                                                <p>
+                                                    Listar Libros
+                                                    <i class="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul class="nav nav-treeview">
+                                                <li class="nav-item">
+                                                    <a href="{{url('libros')}}" class="nav-link">
+                                                        <p>Listar</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                @else
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            Prestar
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="{{url('prestamos')}}" class="nav-link">
+                                                <p>Libros</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                    @endif
                             </ul>
                         </li>
-                @endcan
 
-              </ul>
-            </li>
+                    </ul>
+                </nav>
+        @else
 
-          </ul>
-        </nav>
+        @endif
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->

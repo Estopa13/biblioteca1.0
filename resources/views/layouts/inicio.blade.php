@@ -29,7 +29,7 @@
   <div class="wrapper">
 
     <nav>
- 
+
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
@@ -44,10 +44,8 @@
 
     </nav>
 
-      </div>
-    </aside>
   </div>
- 
+
 </body>
 
 </html>

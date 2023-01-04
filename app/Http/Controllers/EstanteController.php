@@ -46,6 +46,7 @@ class EstanteController extends Controller
     }
     public function update(Request $request, Estante $estante){
         //dd('pasa por update');
+        //dd($request);
         $request->validate([
             'id_persona' => 'required',
             'id_libro' => 'required',

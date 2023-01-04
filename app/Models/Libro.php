@@ -21,4 +21,8 @@ class Libro extends Model
         'id_editorial',
         'id_clasificacion'
     ];
+
+    public function clasificaciones(){
+        return $this->hasOne('App\Models\Clasificacione', 'id_clasificacion', 'id_clasificacion');
+    }
 }
